@@ -10,6 +10,7 @@ import { useBooking } from "@/app/booking-context"
 import { PageHero } from "@/components/page-hero"
 import { StaffAugmentationIcon, DedicatedTeamIcon, FullDeliveryIcon } from "@/components/home/engagement-icons"
 import { CTAFinalSection } from "@/components/home/cta-final-section"
+import { useInView } from "@/hooks/use-in-view"
 
 const blockchainServices = [
   "Smart Contract Development (Solidity, Rust, Move)",
@@ -128,6 +129,9 @@ const faqs = [
 
 export default function ServicesPage() {
   const { openBooking } = useBooking()
+  const { ref: engagementRef, isInView: engagementInView } = useInView({ threshold: 0.2 })
+  const { ref: aiRef, isInView: aiInView } = useInView({ threshold: 0.2 })
+  const { ref: techRef, isInView: techInView } = useInView({ threshold: 0.2 })
 
   return (
     <>
@@ -157,8 +161,8 @@ export default function ServicesPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
-              <div>
-                <Card className="bg-card border-border">
+              <div ref={techRef}>
+                <Card className={`bg-card border-border ${techInView ? 'animate-fade-up' : ''}`}>
                   <CardHeader>
                     <CardTitle className="text-foreground">Technologies & Capabilities</CardTitle>
                   </CardHeader>
@@ -182,8 +186,8 @@ export default function ServicesPage() {
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
-              <div className="order-2 lg:order-1">
-                <Card className="bg-card border-border">
+              <div className="order-2 lg:order-1" ref={aiRef}>
+                <Card className={`bg-card border-border ${aiInView ? 'animate-fade-up' : ''}`}>
                   <CardHeader>
                     <CardTitle className="text-foreground">AI Capabilities</CardTitle>
                   </CardHeader>
@@ -235,8 +239,8 @@ export default function ServicesPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
-              <div>
-                <Card className="bg-card border-border">
+              <div ref={techRef}>
+                <Card className={`bg-card border-border ${techInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: '150ms' }}>
                   <CardHeader>
                     <CardTitle className="text-foreground">Tech Stack</CardTitle>
                   </CardHeader>
@@ -266,9 +270,9 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-6">
+            <div ref={engagementRef} className="grid lg:grid-cols-3 gap-6">
               {engagementModels.map((model, index) => (
-                <Card key={index} className="bg-card border-border">
+                <Card key={index} className={`bg-card border-border ${engagementInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: `${index * 150}ms` }}>
                   <CardHeader>
                     <div className="h-16 w-16 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
                       <model.icon className="h-10 w-10" />
@@ -309,7 +313,7 @@ export default function ServicesPage() {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 md:py-24 bg-card/30">
+        <section className="py-16 md:py-24  bg-[var(--alt-background)]">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground">Frequently Asked Questions</h2>

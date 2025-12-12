@@ -64,19 +64,19 @@ export function AboutSection() {
                 <p className="text-sm text-muted-foreground">Years in Business</p>
               </CardContent>
             </Card>
-            <Card className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: '100ms' }}>
+            <Card className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: '150ms' }}>
               <CardContent className="p-6 text-center">
                 <p className="text-4xl font-bold text-accent mb-2">{projectsCount}+</p>
                 <p className="text-sm text-muted-foreground">Projects Delivered</p>
               </CardContent>
             </Card>
-            <Card className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: '200ms' }}>
+            <Card className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: '300ms' }}>
               <CardContent className="p-6 text-center">
                 <p className="text-4xl font-bold text-accent mb-2">{clientsCount}+</p>
                 <p className="text-sm text-muted-foreground">Clients</p>
               </CardContent>
             </Card>
-            <Card className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: '300ms' }}>
+            <Card className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: '450ms' }}>
               <CardContent className="p-6 text-center">
                 <p className="text-4xl font-bold text-accent mb-2">{engineersCount}+</p>
                 <p className="text-sm text-muted-foreground">Senior Engineers</p>

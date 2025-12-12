@@ -1,5 +1,8 @@
+"use client"
+
 import { Check } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { useInView } from "@/hooks/use-in-view"
 
 const differentiators = [
   "Years of experience shipping Web2, Web3 & AI products",
@@ -9,6 +12,8 @@ const differentiators = [
 ]
 
 export function WhyRubiconSection() {
+  const { ref, isInView } = useInView({ threshold: 0.2 })
+
   return (
     <section className="py-20 md:py-32 bg-[var(--alt-background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,11 +21,12 @@ export function WhyRubiconSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">Why teams choose Rubicon</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div ref={ref} className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {differentiators.map((item, index) => (
             <Card
               key={index}
-              className="bg-card border-border  hover:border-accent/50 transition-colors"
+              className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`}
+              style={{ animationDelay: `${index * 150}ms` }}
             >
               <CardContent className="pt-8 pb-8">
                 <div className="flex items-start gap-4">

@@ -10,6 +10,7 @@ import { CTAFinalSection } from "@/components/home/cta-final-section"
 import { TrustBar } from "@/components/home/trust-bar"
 import { PageHero } from "@/components/page-hero"
 import { EngagementSection } from "@/components/home/engagement-section"
+import { useInView } from "@/hooks/use-in-view"
 
 const clients = [
   { name: "Microsoft", logo: "MICROSOFT" },
@@ -94,6 +95,10 @@ function ClientsCTA() {
 }
 
 export default function ClientsPage() {
+  const { openBooking } = useBooking()
+  const { ref: testimonialsRef, isInView: testimonialsInView } = useInView({ threshold: 0.2 })
+  const { ref: projectsRef, isInView: projectsInView } = useInView({ threshold: 0.2 })
+
   return (
     <>
       <Header />
@@ -130,9 +135,9 @@ export default function ClientsPage() {
               <h2 className="text-3xl font-bold text-foreground">What our clients say</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div ref={testimonialsRef} className="grid md:grid-cols-2 gap-6">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="bg-card border-border  hover:border-accent/50 transition-colors">
+                <Card key={index} className={`bg-card border-border hover:border-accent/50 transition-colors ${testimonialsInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: `${index * 150}ms` }}>
                   <CardContent className="p-6">
                     <Quote className="h-8 w-8 text-accent mb-4" />
                     <p className="text-foreground leading-relaxed mb-6">"{testimonial.quote}"</p>
@@ -164,9 +169,9 @@ export default function ClientsPage() {
               <p className="mt-4 text-muted-foreground">A closer look at some of our recent work</p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div ref={projectsRef} className="grid lg:grid-cols-2 gap-8">
               {caseStudies.map((caseStudy, index) => (
-                <Card key={index} className="bg-card border-border overflow-hidden   hover:border-accent/50 transition-colors">
+                <Card key={index} className={`bg-card border-border overflow-hidden hover:border-accent/50 transition-colors ${projectsInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: `${index * 150}ms` }}>
                   <CardContent className="p-0">
                     <div className="p-6 border-b border-border">
                       <div className="flex items-start justify-between mb-4">

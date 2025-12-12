@@ -1,7 +1,10 @@
 /* Renamed from "Trusted by industry leaders" to "What our clients say" - cleaner positioning */
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Quote } from "lucide-react"
 import Image from "next/image"
+import { useInView } from "@/hooks/use-in-view"
 
 const testimonials = [
   {
@@ -35,6 +38,8 @@ const clients = [
 ]
 
 export function TrustedSection() {
+  const { ref, isInView } = useInView({ threshold: 0.2 })
+
   return (
     <section id="clients" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,9 +50,9 @@ export function TrustedSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div ref={ref} className="grid md:grid-cols-3 gap-6 mb-16">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-card border-border  hover:border-accent/50 transition-colors">
+            <Card key={index} className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: `${index * 150}ms` }}>
               <CardContent className="p-6">
                 <Quote className="h-8 w-8 text-accent mb-4" />
                 <p className="text-foreground leading-relaxed mb-6">"{testimonial.quote}"</p>
