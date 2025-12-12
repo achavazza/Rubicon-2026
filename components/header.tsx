@@ -7,12 +7,14 @@ import { Menu, X, Sun, Moon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { useBooking } from "@/app/booking-context"
+import { usePathname } from "next/navigation"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { openBooking } = useBooking()
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -74,17 +76,20 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors uppercase">
+            <Link href="/" className="relative text-sm text-muted-foreground hover:text-foreground transition-colors uppercase group">
               Home
+              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-accent transform origin-left transition-transform duration-300 ${pathname === '/' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
             </Link>
             <Link
               href="/our-services"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors uppercase"
+              className="relative text-sm text-muted-foreground hover:text-foreground transition-colors uppercase group"
             >
               Services
+              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-accent transform origin-left transition-transform duration-300 ${pathname === '/our-services' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
             </Link>
-            <Link href="/clients" className="text-sm text-muted-foreground hover:text-foreground transition-colors uppercase">
+            <Link href="/clients" className="relative text-sm text-muted-foreground hover:text-foreground transition-colors uppercase group">
               Clients
+              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-accent transform origin-left transition-transform duration-300 ${pathname === '/clients' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
             </Link>
           </div>
 
