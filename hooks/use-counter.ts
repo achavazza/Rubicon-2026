@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react"
 
 export function useCounter(end: number, duration: number = 2000, isInView: boolean = false) {

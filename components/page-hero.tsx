@@ -33,7 +33,15 @@ export function PageHero({ title, description }: PageHeroProps) {
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl">
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-                        {title}
+                        {title.split(' ').map((word, index) => (
+                            <span
+                                key={index}
+                                className="inline-block animate-fade-up-word mr-2"
+                                style={{ animationDelay: `${index * 100}ms` }}
+                            >
+                                {word}
+                            </span>
+                        ))}
                     </h1>
                     <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
                         {description}
