@@ -1,13 +1,17 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { DM_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { BookingProvider } from "@/app/booking-context"
 import { BookingModal } from "@/components/booking-modal"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Rubicon | Blockchain, AI & Product Engineering from LATAM",
@@ -22,7 +26,7 @@ export const metadata: Metadata = {
     "DeFi",
     "remote engineering teams",
   ],
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 export const viewport = {
@@ -35,13 +39,21 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
-        <BookingProvider>
-          {children}
-          <BookingModal />
-        </BookingProvider>
-        <Analytics />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${dmSans.variable} font-sans antialiased`} suppressHydrationWarning>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          storageKey="rubicon-theme"
+        >
+          <BookingProvider>
+            {children}
+            <BookingModal />
+          </BookingProvider>
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

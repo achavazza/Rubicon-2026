@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -6,9 +7,24 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <Link href="/" className="text-xl font-semibold tracking-tight text-foreground">
-              Rubicon
-            </Link>
+            <span className="flex items-center">
+              <Image
+                src="/assets/svgs/Rubicon-b.svg"
+                alt="Rubicon"
+                width={150}
+                height={64}
+                className="h-16 w-auto dark:hidden"
+                priority
+              />
+              <Image
+                src="/assets/svgs/Rubicon-w.svg"
+                alt="Rubicon"
+                width={150}
+                height={64}
+                className="h-16 w-auto hidden dark:block"
+                priority
+              />
+            </span>
             <p className="mt-4 text-sm text-muted-foreground max-w-md">
               Production-grade Blockchain, AI & Full Stack Product Teams from LATAM. Remote-first engineers building the future of
               technology.

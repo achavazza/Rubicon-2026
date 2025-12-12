@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# Next.js build / output directories
+.next/
+out/
+
+# local env files
+.env.local
+.env
+
+# lockfiles (commit these to repo)
+# pnpm-lock.yaml
+# package-lock.json
+# yarn.lock

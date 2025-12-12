@@ -16,12 +16,12 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <PartnersSection />
+        {/*<PartnersSection />*/}
         <TrustedSection />
+        <AboutSection />
         <ServicesSection />
         <EngagementSection />
         <WhyRubiconSection />
-        <AboutSection />
         <CTAFinalSection />
       </main>
       <Footer />

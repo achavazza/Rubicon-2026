@@ -1,11 +1,13 @@
 import { Quote } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
+import Image from "next/image"
+
 const clients = [
-  { name: "Microsoft", logo: "MICROSOFT" },
-  { name: "OpenZeppelin", logo: "OPENZEPPELIN" },
-  { name: "Superare", logo: "SUPERARE" },
-  { name: "Sitickets", logo: "SITICKETS" },
+  { name: "Microsoft", light: "/assets/svgs/Microsoft.svg", dark: "/assets/svgs/Microsoft-w.svg", width: 150, height: 60 },
+  { name: "OpenZeppelin", light: "/assets/svgs/OpenZeppelin.svg", dark: "/assets/svgs/OpenZeppelin-w.svg", width: 150, height: 60 },
+  { name: "SuperRare", light: "/assets/svgs/SuperRare.svg", dark: "/assets/svgs/SuperRare-w.svg", width: 150, height: 60 },
+  { name: "Sitickets", light: "/assets/svgs/Sitix.svg", dark: "/assets/svgs/Sitix-w.svg", width: 150, height: 60 },
 ]
 
 const testimonials = [
@@ -34,46 +36,37 @@ const testimonials = [
 
 export function TrustBar() {
   return (
-    <section id="clients" className="py-20 md:py-32">
+    <section id="clients" className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center">
           <p className="text-xs text-muted-foreground/60 uppercase tracking-widest mb-8">
             Trusted by leading companies
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-90 grayscale hover:grayscale-0 transition-all duration-300">
             {clients.map((client) => (
               <div
                 key={client.name}
-                className="text-muted-foreground/70 font-semibold tracking-widest text-sm hover:text-accent transition-colors"
+                className="relative w-auto flex items-center justify-center shrink-0"
               >
-                {client.logo}
+                {/* Light Mode Logo */}
+                <Image
+                  src={client.light}
+                  alt={client.name}
+                  width={client.width}
+                  height={client.height}
+                  className="h-full w-auto object-contain dark:hidden"
+                />
+                {/* Dark Mode Logo */}
+                <Image
+                  src={client.dark}
+                  alt={client.name}
+                  width={client.width}
+                  height={client.height}
+                  className="h-full w-auto object-contain hidden dark:block"
+                />
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Global teams ship faster with Rubicon</h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            We help companies launch blockchain, AI and product initiatives without sacrificing quality or timeline.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-card border-border">
-              <CardContent className="p-6">
-                <Quote className="h-8 w-8 text-accent mb-4" />
-                <p className="text-foreground leading-relaxed mb-6">"{testimonial.quote}"</p>
-                <div className="border-t border-border pt-4">
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.role}, {testimonial.company}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </div>
     </section>

@@ -1,21 +1,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Users, UsersRound, Rocket } from "lucide-react"
+import { StaffAugmentationIcon, DedicatedTeamIcon, FullDeliveryIcon } from "./engagement-icons"
 
 const engagementModels = [
   {
-    icon: Users,
+    icon: StaffAugmentationIcon,
     title: "Staff Augmentation",
     description: "Expand your team with our engineers while you keep control of delivery.",
     bestFor: "Teams needing specific expertise on existing projects",
   },
   {
-    icon: UsersRound,
+    icon: DedicatedTeamIcon,
     title: "Dedicated Team",
     description: "A LATAM-based squad fully integrated with your workflow.",
     bestFor: "Long-term projects requiring ongoing development",
   },
   {
-    icon: Rocket,
+    icon: FullDeliveryIcon,
     title: "Full Delivery",
     description: "We own end-to-end delivery from discovery to production.",
     bestFor: "New products or complete feature development",
@@ -35,10 +35,10 @@ export function EngagementSection() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {engagementModels.map((model, index) => (
-            <Card key={index} className="bg-card border-border">
+            <Card key={index} className="bg-card border-border hover:border-accent/50 transition-colors">
               <CardHeader>
-                <div className="h-12 w-12 rounded-lg bg-secondary flex items-center justify-center mb-4">
-                  <model.icon className="h-6 w-6 text-foreground" />
+                <div className="h-16 w-16 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                  <model.icon className="h-10 w-10" />
                 </div>
                 <CardTitle className="text-xl text-foreground">{model.title}</CardTitle>
               </CardHeader>

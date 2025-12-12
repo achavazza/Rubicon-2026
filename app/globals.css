@@ -1,49 +1,111 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,400&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
-/* Rubicon Light Theme - magenta primary with light backgrounds */
 :root {
-  /* Updated to intermediate theme - darker than white, lighter than before */
-  --background: #0f1318;
-  --foreground: #ffffff;
-  --card: #16191f;
-  --card-foreground: #ffffff;
-  --popover: #0f1318;
-  --popover-foreground: #ffffff;
-  --primary: #c91cd9;
+  /* Light (default) color scheme */
+  --background: #ffffff;
+  --foreground: #0f1426;
+  /* titles */
+  /* text */
+  --card: #fafafa;
+  /* alt background */
+  --alt-background: #f0f0f0;
+  /* alt background */
+  --card-foreground: #0f1426;
+  --popover: #ffffff;
+  --popover-foreground: #0f1426;
+  --primary: #43acf0;
+  /* icons */
+  /* icons / primary accent for light */
   --primary-foreground: #ffffff;
-  --secondary: #242933;
-  --secondary-foreground: #ffffff;
-  --muted: #8b92a9;
-  --muted-foreground: #8b92a9;
-  --accent: #c91cd9;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #0f1426;
+  --muted: #f0f0f0;
+  --muted-foreground: #0f1426;
+  /* text */
+  --accent: #43acf0;
   --accent-foreground: #ffffff;
-  --destructive: #ef4444;
+  --destructive: #ff4d6d;
   --destructive-foreground: #ffffff;
-  --border: #272d38;
-  --input: #1a1f2a;
-  --ring: #c91cd9;
-  --chart-1: #c91cd9;
-  --chart-2: #8b5cf6;
-  --chart-3: #6366f1;
-  --chart-4: #f59e0b;
-  --chart-5: #10b981;
-  --radius: 0.5rem;
-  --sidebar: #16191f;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #c91cd9;
+  --border: #f0f0f0;
+  /* strokes */
+  /* strokes */
+  --input: #f0f0f0;
+  --ring: #43acf0;
+  --chart-1: #43acf0;
+  --chart-2: #8bd3ff;
+  --chart-3: #6bb1e8;
+  --chart-4: #2b9ce0;
+  --chart-5: #1f7fc4;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f1426;
+  --sidebar-primary: #43acf0;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #272d38;
+  --sidebar-accent: #43acf0;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #272d38;
-  --sidebar-ring: #c91cd9;
+  --sidebar-border: #f0f0f0;
+  --sidebar-ring: #43acf0;
+  --stroke-color: #f0f0f0;
+  --stroke-width: 1px;
+}
+
+.dark {
+  /* Dark scheme */
+  --background: #0f1426;
+  /* background / darker */
+  --alt-background: #12182d;
+  /* darker background */
+  --foreground: #ffffff;
+  /* titles */
+  /* text */
+  --card: #12182d;
+  /* dark */
+  /* dark card */
+  --card-foreground: #ffffff;
+  --popover: #12182d;
+  --popover-foreground: #ffffff;
+  --primary: #10eff9;
+  /* icons */
+  /* icons/accent in dark */
+  --primary-foreground: #0f1426;
+  --secondary: #12182d;
+  --secondary-foreground: #ffffff;
+  --muted: #12182d;
+  --muted-foreground: #9ca3af;
+  /* text */
+  --accent: #10eff9;
+  --accent-foreground: #0f1426;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
+  --border: #1e284c;
+  /* strokes */
+  /* strokes */
+  --input: #12182d;
+  --ring: #10eff9;
+  --chart-1: #10eff9;
+  --chart-2: #4fd9e8;
+  --chart-3: #2fb8d1;
+  --chart-4: #1aa0bb;
+  --chart-5: #128fa6;
+  --sidebar: #12182d;
+  --sidebar-foreground: #9ca3af;
+  --sidebar-primary: #10eff9;
+  --sidebar-primary-foreground: #0f1426;
+  --sidebar-accent: #10eff9;
+  --sidebar-accent-foreground: #0f1426;
+  --sidebar-border: #1e284c;
+  --sidebar-ring: #10eff9;
+  --stroke-color: #1e284c;
+  --stroke-width: 2px;
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -86,7 +148,44 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  @layer utilities {
+    .animate-marquee {
+      animation: marquee 50s linear infinite;
+    }
+
+    .animate-fade-up {
+      animation: fadeUp 0.6s ease-out forwards;
+    }
+
+    .animate-fade-up-word {
+      animation: fadeUp 0.5s ease-out forwards;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

@@ -1,6 +1,7 @@
 /* Renamed from "Trusted by industry leaders" to "What our clients say" - cleaner positioning */
 import { Card, CardContent } from "@/components/ui/card"
 import { Quote } from "lucide-react"
+import Image from "next/image"
 
 const testimonials = [
   {
@@ -27,10 +28,10 @@ const testimonials = [
 ]
 
 const clients = [
-  { name: "Microsoft", logo: "M" },
-  { name: "OpenZeppelin", logo: "OZ" },
-  { name: "Superare", logo: "S" },
-  { name: "Sitickets", logo: "ST" },
+  { name: "Microsoft", light: "/assets/svgs/Microsoft.svg", dark: "/assets/svgs/Microsoft-w.svg", width: 150, height: 60 },
+  { name: "OpenZeppelin", light: "/assets/svgs/OpenZeppelin.svg", dark: "/assets/svgs/OpenZeppelin-w.svg", width: 150, height: 60 },
+  { name: "SuperRare", light: "/assets/svgs/SuperRare.svg", dark: "/assets/svgs/SuperRare-w.svg", width: 150, height: 60 },
+  { name: "Sitickets", light: "/assets/svgs/Sitix.svg", dark: "/assets/svgs/Sitix-w.svg", width: 150, height: 60 },
 ]
 
 export function TrustedSection() {
@@ -46,7 +47,7 @@ export function TrustedSection() {
 
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-card border-border">
+            <Card key={index} className="bg-card border-border  hover:border-accent/50 transition-colors">
               <CardContent className="p-6">
                 <Quote className="h-8 w-8 text-accent mb-4" />
                 <p className="text-foreground leading-relaxed mb-6">"{testimonial.quote}"</p>
@@ -65,13 +66,28 @@ export function TrustedSection() {
           <p className="text-center text-sm text-muted-foreground/70 uppercase tracking-widest mb-8">
             Companies we've worked with
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-90 grayscale hover:grayscale-0 transition-all duration-300">
             {clients.map((client) => (
               <div
                 key={client.name}
-                className="flex items-center justify-center h-16 px-6 rounded-lg bg-card border border-border/50 hover:border-accent/50 transition-colors"
+                className="relative w-auto flex items-center justify-center shrink-0"
               >
-                <span className="font-semibold text-muted-foreground text-sm">{client.name}</span>
+                {/* Light Mode Logo (Original) */}
+                <Image
+                  src={client.light}
+                  alt={client.name}
+                  width={client.width}
+                  height={client.height}
+                  className="h-full w-auto object-contain dark:hidden"
+                />
+                {/* Dark Mode Logo (White) */}
+                <Image
+                  src={client.dark}
+                  alt={client.name}
+                  width={client.width}
+                  height={client.height}
+                  className="h-full w-auto object-contain hidden dark:block"
+                />
               </div>
             ))}
           </div>
