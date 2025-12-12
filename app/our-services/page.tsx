@@ -4,9 +4,12 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Blocks, Brain, Code2, ArrowRight, Check, Users, UsersRound, Rocket } from "lucide-react"
+import { Blocks, Brain, Code2, ArrowRight, Check } from "lucide-react"
 import Link from "next/link"
 import { useBooking } from "@/app/booking-context"
+import { PageHero } from "@/components/page-hero"
+import { StaffAugmentationIcon, DedicatedTeamIcon, FullDeliveryIcon } from "@/components/home/engagement-icons"
+import { CTAFinalSection } from "@/components/home/cta-final-section"
 
 const blockchainServices = [
   "Smart Contract Development (Solidity, Rust, Move)",
@@ -43,7 +46,7 @@ const fullstackServices = [
 
 const engagementModels = [
   {
-    icon: Users,
+    icon: StaffAugmentationIcon,
     title: "Staff Augmentation",
     description: "Expand your team with our engineers while you keep control of delivery.",
     process: [
@@ -60,7 +63,7 @@ const engagementModels = [
     ],
   },
   {
-    icon: UsersRound,
+    icon: DedicatedTeamIcon,
     title: "Dedicated Team",
     description: "A LATAM-based squad fully integrated with your workflow.",
     process: [
@@ -77,7 +80,7 @@ const engagementModels = [
     ],
   },
   {
-    icon: Rocket,
+    icon: FullDeliveryIcon,
     title: "Full Delivery",
     description: "We own end-to-end delivery from discovery to production.",
     process: [
@@ -131,17 +134,10 @@ export default function ServicesPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-16 md:pt-40 md:pb-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">Our Services</h1>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                We combine deep expertise in blockchain, AI, and full-stack development to deliver production-grade
-                solutions. From smart contracts to intelligent systems, we build technology that scales.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title="Our Services"
+          description="We combine deep expertise in blockchain, AI, and full-stack development to deliver production-grade solutions. From smart contracts to intelligent systems, we build technology that scales."
+        />
 
         {/* Blockchain Engineering */}
         <section className="py-16 md:py-24 bg-card/30">
@@ -156,11 +152,9 @@ export default function ServicesPage() {
                   We build secure, audited smart contracts and decentralized applications across multiple chains. Our
                   team has deployed contracts handling millions in TVL.
                 </p>
-                <Button asChild>
-                  <Link href="/#contact">
-                    Discuss your blockchain project
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                <Button onClick={openBooking}>
+                  Discuss your blockchain project
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
               <div>
@@ -214,11 +208,9 @@ export default function ServicesPage() {
                   We design and implement intelligent systems that automate workflows, enhance products, and unlock new
                   capabilities. From LLM copilots to multi-agent orchestration.
                 </p>
-                <Button asChild>
-                  <Link href="/#contact">
-                    Explore AI solutions
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                <Button onClick={openBooking}>
+                  Explore AI solutions
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -238,11 +230,9 @@ export default function ServicesPage() {
                   End-to-end product engineering from frontend to infrastructure. We build scalable web and mobile
                   applications with seamless blockchain and AI integrations.
                 </p>
-                <Button asChild>
-                  <Link href="/#contact">
-                    Start your product
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                <Button onClick={openBooking}>
+                  Start your product
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
               <div>
@@ -280,8 +270,8 @@ export default function ServicesPage() {
               {engagementModels.map((model, index) => (
                 <Card key={index} className="bg-card border-border">
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-lg bg-secondary flex items-center justify-center mb-4">
-                      <model.icon className="h-6 w-6 text-foreground" />
+                    <div className="h-16 w-16 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                      <model.icon className="h-10 w-10" />
                     </div>
                     <CardTitle className="text-xl text-foreground">{model.title}</CardTitle>
                     <p className="text-muted-foreground">{model.description}</p>
@@ -340,7 +330,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* CTA
         <section className="py-16 md:py-24">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-foreground mb-4">Ready to discuss your project?</h2>
@@ -352,7 +342,8 @@ export default function ServicesPage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
-        </section>
+        </section>*/}
+        <CTAFinalSection />
       </main>
       <Footer />
     </>

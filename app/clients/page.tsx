@@ -6,6 +6,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Quote, ArrowRight, ExternalLink } from "lucide-react"
 import { useBooking } from "@/app/booking-context"
+import { CTAFinalSection } from "@/components/home/cta-final-section"
+import { TrustBar } from "@/components/home/trust-bar"
+import { PageHero } from "@/components/page-hero"
+import { EngagementSection } from "@/components/home/engagement-section"
 
 const clients = [
   { name: "Microsoft", logo: "MICROSOFT" },
@@ -95,21 +99,12 @@ export default function ClientsPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-16 md:pt-40 md:pb-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-                Our Clients & Success Stories
-              </h1>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                We've partnered with startups and enterprises across blockchain, fintech, and technology to deliver
-                production-grade solutions that drive real business outcomes.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title="Our Clients & Success Stories"
+          description="We've partnered with startups and enterprises across blockchain, fintech, and technology to deliver production-grade solutions that drive real business outcomes."
+        />
 
-        {/* Client Logos */}
+        {/* Client Logos 
         <section className="py-12 border-y border-border bg-card/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-center text-sm text-muted-foreground mb-8">Trusted by leading companies worldwide</p>
@@ -125,6 +120,8 @@ export default function ClientsPage() {
             </div>
           </div>
         </section>
+        */}
+        <TrustBar />
 
         {/* Testimonials */}
         <section className="py-16 md:py-24">
@@ -135,7 +132,7 @@ export default function ClientsPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="bg-card border-border">
+                <Card key={index} className="bg-card border-border  hover:border-accent/50 transition-colors">
                   <CardContent className="p-6">
                     <Quote className="h-8 w-8 text-accent mb-4" />
                     <p className="text-foreground leading-relaxed mb-6">"{testimonial.quote}"</p>
@@ -169,7 +166,7 @@ export default function ClientsPage() {
 
             <div className="grid lg:grid-cols-2 gap-8">
               {caseStudies.map((caseStudy, index) => (
-                <Card key={index} className="bg-card border-border overflow-hidden">
+                <Card key={index} className="bg-card border-border overflow-hidden   hover:border-accent/50 transition-colors">
                   <CardContent className="p-0">
                     <div className="p-6 border-b border-border">
                       <div className="flex items-start justify-between mb-4">
@@ -222,7 +219,7 @@ export default function ClientsPage() {
           </div>
         </section>
 
-        {/* How We Engage */}
+        {/* How We Engage 
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -248,7 +245,7 @@ export default function ClientsPage() {
                   best: "Best for: Complex projects where you need a true partner",
                 },
               ].map((model, index) => (
-                <Card key={index} className="bg-card border-border">
+                <Card key={index} className="bg-card border-border  hover:border-accent/50 transition-colors">
                   <CardContent className="p-6">
                     <h3 className="text-lg font-semibold text-foreground mb-3">{model.title}</h3>
                     <p className="text-muted-foreground text-sm mb-4">{model.description}</p>
@@ -258,9 +255,10 @@ export default function ClientsPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section>*/}
+        <EngagementSection />
 
-        {/* CTA */}
+        {/* CTA 
         <section className="py-16 md:py-24 bg-card/30">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-foreground mb-4">Ready to start your next project?</h2>
@@ -270,6 +268,8 @@ export default function ClientsPage() {
             <ClientsCTA />
           </div>
         </section>
+        */}
+        <CTAFinalSection />
       </main>
       <Footer />
     </>

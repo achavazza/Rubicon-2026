@@ -10,7 +10,7 @@ const differentiators = [
 
 export function WhyRubiconSection() {
   return (
-    <section className="py-20 md:py-32 bg-card/30">
+    <section className="py-20 md:py-32 bg-[var(--alt-background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">Why teams choose Rubicon</h2>
@@ -20,7 +20,7 @@ export function WhyRubiconSection() {
           {differentiators.map((item, index) => (
             <Card
               key={index}
-              className="bg-card border-border/50 hover:border-accent/50 transition-all hover:shadow-lg hover:shadow-accent/10"
+              className="bg-card border-border  hover:border-accent/50 transition-colors"
             >
               <CardContent className="pt-8 pb-8">
                 <div className="flex items-start gap-4">

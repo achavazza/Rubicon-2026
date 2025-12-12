@@ -33,7 +33,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-20 md:py-32 bg-card/30">
+    <section className="py-20 md:py-32 bg-[var(--alt-background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">What we build</h2>
@@ -46,8 +46,8 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card key={index} className="bg-card border-border hover:border-accent/50 transition-colors">
               <CardHeader>
-                <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <service.icon className="h-6 w-6 text-accent" />
+                <div className="h-16 w-16 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                  <service.icon className="h-10 w-10 text-accent" strokeWidth={1.5} />
                 </div>
                 <CardTitle className="text-xl text-foreground">{service.title}</CardTitle>
               </CardHeader>
