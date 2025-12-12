@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
+import { useInView } from "@/hooks/use-in-view"
 
 export function CTAFinalSection() {
   const { openBooking } = useBooking()
   const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const { ref, isInView } = useInView({ threshold: 0.3 })
 
   useEffect(() => {
     setMounted(true)
@@ -28,7 +30,7 @@ export function CTAFinalSection() {
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div ref={ref} className={`absolute inset-0 z-0 ${isInView ? 'animate-slide-up-bg' : ''}`}>
         <img
           src={bgImage}
           alt="Background"
