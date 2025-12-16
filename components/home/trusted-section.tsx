@@ -2,33 +2,10 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { Quote } from "lucide-react"
 import Image from "next/image"
+import { TestimonialSlider } from "@/components/testimonial-slider"
+import { testimonials } from "@/lib/data/testimonials"
 import { useInView } from "@/hooks/use-in-view"
-
-const testimonials = [
-  {
-    quote:
-      "Rubicon's blockchain expertise helped us launch our DeFi protocol 3 months ahead of schedule. Their technical depth is unmatched.",
-    name: "Sarah Chen",
-    role: "CTO",
-    company: "OpenZeppelin",
-  },
-  {
-    quote:
-      "The AI automation system they built reduced our operational costs by 40%. Highly recommended for any technical initiative.",
-    name: "Marcus Rodriguez",
-    role: "VP Engineering",
-    company: "Microsoft",
-  },
-  {
-    quote:
-      "Working with Rubicon felt like having a senior engineering team in-house. They understand both Web2 and Web3 deeply.",
-    name: "Elena Vasquez",
-    role: "Founder",
-    company: "Superare",
-  },
-]
 
 const clients = [
   { name: "Microsoft", light: "/assets/svgs/Microsoft.svg", dark: "/assets/svgs/Microsoft-w.svg", width: 150, height: 60 },
@@ -50,22 +27,7 @@ export function TrustedSection() {
           </p>
         </div>
 
-        <div ref={ref} className="grid md:grid-cols-3 gap-6 mb-16">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className={`bg-card border-border hover:border-accent/50 transition-colors ${isInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: `${index * 150}ms` }}>
-              <CardContent className="p-6">
-                <Quote className="h-8 w-8 text-accent mb-4" />
-                <p className="text-foreground leading-relaxed mb-6">"{testimonial.quote}"</p>
-                <div className="border-t border-border pt-4">
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.role}, {testimonial.company}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <TestimonialSlider testimonials={testimonials} />
 
         <div className="border-t border-border pt-12">
           <p className="text-center text-sm text-muted-foreground/70 uppercase tracking-widest mb-8">
