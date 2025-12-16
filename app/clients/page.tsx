@@ -5,10 +5,13 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Quote, ArrowRight, ExternalLink } from "lucide-react"
+import Image from "next/image"
 import { useBooking } from "@/app/booking-context"
 import { CTAFinalSection } from "@/components/home/cta-final-section"
 import { TrustBar } from "@/components/home/trust-bar"
 import { PageHero } from "@/components/page-hero"
+import { TestimonialSlider } from "@/components/testimonial-slider"
+import { testimonials } from "@/lib/data/testimonials"
 import { EngagementSection } from "@/components/home/engagement-section"
 import { useInView } from "@/hooks/use-in-view"
 
@@ -19,40 +22,6 @@ const clients = [
   { name: "Sitickets", logo: "SITICKETS" },
 ]
 
-const testimonials = [
-  {
-    quote:
-      "Rubicon's blockchain expertise helped us launch our DeFi protocol 3 months ahead of schedule. Their technical depth in Solidity and security best practices is unmatched. They became an extension of our core team.",
-    name: "Sarah Chen",
-    role: "CTO",
-    company: "OpenZeppelin",
-    projectType: "Smart Contract Development",
-  },
-  {
-    quote:
-      "The AI automation system they built reduced our operational costs by 40%. Their team integrated seamlessly with our engineering org and delivered beyond expectations. Highly recommended for any technical initiative.",
-    name: "Marcus Rodriguez",
-    role: "VP Engineering",
-    company: "Microsoft",
-    projectType: "AI Systems & Automation",
-  },
-  {
-    quote:
-      "Working with Rubicon felt like having a senior engineering team in-house. They understand both Web2 and Web3 deeply, which was crucial for our hybrid architecture. The dedicated team model worked perfectly for us.",
-    name: "Elena Vasquez",
-    role: "Founder & CEO",
-    company: "Superare",
-    projectType: "Full-stack Development",
-  },
-  {
-    quote:
-      "We needed a team that could handle both our ticketing platform and blockchain integration for NFT tickets. Rubicon delivered a production-ready solution in just 4 months. Outstanding technical execution.",
-    name: "Carlos Mendez",
-    role: "Head of Product",
-    company: "Sitickets",
-    projectType: "Blockchain + Full-stack",
-  },
-]
 
 const caseStudies = [
   {
@@ -129,35 +98,13 @@ export default function ClientsPage() {
         <TrustBar />
 
         {/* Testimonials */}
-        <section className="py-16 md:py-24">
+        <section className="">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-foreground">What our clients say</h2>
             </div>
 
-            <div ref={testimonialsRef} className="grid md:grid-cols-2 gap-6">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className={`bg-card border-border hover:border-accent/50 transition-colors ${testimonialsInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: `${index * 150}ms` }}>
-                  <CardContent className="p-6">
-                    <Quote className="h-8 w-8 text-accent mb-4" />
-                    <p className="text-foreground leading-relaxed mb-6">"{testimonial.quote}"</p>
-                    <div className="border-t border-border pt-4">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <p className="font-semibold text-foreground">{testimonial.name}</p>
-                          <p className="text-sm text-muted-foreground">
-                            {testimonial.role}, {testimonial.company}
-                          </p>
-                        </div>
-                        <span className="text-xs px-2 py-1 bg-accent/10 text-accent rounded">
-                          {testimonial.projectType}
-                        </span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <TestimonialSlider testimonials={testimonials} />
           </div>
         </section>
 
