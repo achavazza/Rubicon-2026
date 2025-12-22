@@ -12,7 +12,7 @@ export function HeroPartners({ className }: { className?: string }) {
     ]
 
     return (
-        <div className={cn("w-full border-t border-border/80 bg-background/80 backdrop-blur-sm z-1", className)}>
+        <div className={cn("w-full border-t border-border/50 bg-background/50 backdrop-blur-sm z-1", className)}>
             {/* Mobile View: Marquee without title */}
             <div className="w-full py-6 overflow-hidden md:hidden">
                 <div className="flex w-max animate-marquee gap-16 items-center ">
