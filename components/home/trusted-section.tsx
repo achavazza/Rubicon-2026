@@ -33,7 +33,7 @@ export function TrustedSection() {
           <p className="text-center text-sm text-muted-foreground/70 uppercase tracking-widest mb-8">
             Companies we've worked with
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-90 grayscale hover:grayscale-0 transition-all duration-300">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             {clients.map((client) => (
               <div
                 key={client.name}

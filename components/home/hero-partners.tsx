@@ -3,19 +3,19 @@ import { cn } from "@/lib/utils"
 
 export function HeroPartners({ className }: { className?: string }) {
     const partners = [
-        { name: "Algorand", light: "/assets/svgs/Algorand-b.svg", dark: "/assets/svgs/Algorand-w.svg", width: 150, height: 60 },
-        { name: "Stellar", light: "/assets/svgs/Stellar-b.svg", dark: "/assets/svgs/Stellar-w.svg", width: 150, height: 60 },
-        { name: "ETH Latam", light: "/assets/svgs/Eth-latam-b.svg", dark: "/assets/svgs/Eth-latam-w.svg", width: 150, height: 60 },
-        { name: "Consensys", light: "/assets/svgs/Concensus-b.svg", dark: "/assets/svgs/Concensus-w.svg", width: 150, height: 60 },
+        { name: "Algorand", light: "/assets/svgs/Algorand.svg", dark: "/assets/svgs/Algorand-w.svg", width: 150, height: 60 },
+        { name: "Stellar", light: "/assets/svgs/Stellar.svg", dark: "/assets/svgs/Stellar-w.svg", width: 150, height: 60 },
+        { name: "ETH Latam", light: "/assets/svgs/Eth-latam.svg", dark: "/assets/svgs/Eth-latam-w.svg", width: 150, height: 60 },
+        { name: "Consensys", light: "/assets/svgs/Concensus.svg", dark: "/assets/svgs/Concensus-w.svg", width: 150, height: 60 },
         { name: "Halborn", light: "/assets/svgs/Halborn-b.svg", dark: "/assets/svgs/Halborn-w.svg", width: 150, height: 60 },
-        { name: "AFF", light: "/assets/svgs/AFF-b.svg", dark: "/assets/svgs/AFF-w.svg", width: 150, height: 60 },
+        { name: "AFF", light: "/assets/svgs/AFF.svg", dark: "/assets/svgs/AFF-w.svg", width: 150, height: 60 },
     ]
 
     return (
-        <div className={cn("w-full border-t border-border/50 bg-background/50 backdrop-blur-sm z-1", className)}>
+        <div className={cn("w-full border-t border-border/80 bg-background/80 backdrop-blur-sm z-1", className)}>
             {/* Mobile View: Marquee without title */}
             <div className="w-full py-6 overflow-hidden md:hidden">
-                <div className="flex w-max animate-marquee gap-16 items-center opacity-90 grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="flex w-max animate-marquee gap-16 items-center ">
                     {/* First set of logos */}
                     {partners.map((partner, index) => (
                         <div
@@ -88,7 +88,7 @@ export function HeroPartners({ className }: { className?: string }) {
             {/* Desktop View: Static Grid with title */}
             <div className="hidden md:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <p className="text-xs text-muted-foreground mb-6 uppercase tracking-wider text-left">Official partners</p>
-                <div className="flex flex-wrap justify-between gap-x-12 gap-y-8 items-center opacity-90 grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="flex flex-wrap justify-between gap-x-12 gap-y-8 items-center">
                     {partners.map((partner) => (
                         <div
                             key={partner.name}
