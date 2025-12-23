@@ -50,13 +50,25 @@ export function TestimonialSlider({
         }
     }, [currentIndex, testimonials.length])
 
+    const [isVisible, setIsVisible] = useState(true)
+
+    // Handle visibility change to pause auto-slide when tab is inactive
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            setIsVisible(!document.hidden)
+        }
+
+        document.addEventListener("visibilitychange", handleVisibilityChange)
+        return () => document.removeEventListener("visibilitychange", handleVisibilityChange)
+    }, [])
+
     // Auto-slide functionality
     useEffect(() => {
-        if (!autoSlide || isPaused) return
+        if (!autoSlide || isPaused || !isVisible) return
 
         const interval = setInterval(nextSlide, autoSlideInterval)
         return () => clearInterval(interval)
-    }, [autoSlide, autoSlideInterval, isPaused, nextSlide])
+    }, [autoSlide, autoSlideInterval, isPaused, isVisible, nextSlide])
 
     // Initialize to middle set
     useEffect(() => {

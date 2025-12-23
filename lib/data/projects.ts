@@ -6,6 +6,7 @@ export interface Project {
     ourWork: string[]
     techStack: string[]
     url: string
+    logo?: string
 }
 
 export const projects: Project[] = [
@@ -23,6 +24,7 @@ export const projects: Project[] = [
         ],
         techStack: ["Solidity", "React", "Postgres", "TypeScript", "Node.js", "AWS"],
         url: "https://www.riseworks.io/",
+        logo: "Rise",
     },
     {
         id: "galaxy",
@@ -38,6 +40,7 @@ export const projects: Project[] = [
         ],
         techStack: ["Node.js", "React", "GraphQL", "AWS"],
         url: "https://www.galaxy.com/",
+        logo: "Galaxy",
     },
     {
         id: "superrare",
@@ -52,6 +55,7 @@ export const projects: Project[] = [
         ],
         techStack: ["Solidity", "React", "Haskell", "Postgres", "GraphQL", "AWS"],
         url: "https://superrare.com/",
+        logo: "SuperRare",
     },
     {
         id: "sitickets",
@@ -66,6 +70,7 @@ export const projects: Project[] = [
         ],
         techStack: ["React", "PHP", "Node.js", "Postgres", "React Native", "AWS"],
         url: "https://www.sitickets.com/",
+        logo: "Sitix",
     },
     {
         id: "microsoft",
@@ -85,6 +90,7 @@ export const projects: Project[] = [
             "Azure Analysis Services",
         ],
         url: "https://www.microsoft.com/",
+        logo: "Microsoft",
     },
     {
         id: "membrane",
@@ -99,6 +105,7 @@ export const projects: Project[] = [
         ],
         techStack: ["Solidity", "Node.js", "React", "Postgres", "AWS"],
         url: "https://membranelabs.com/",
+        logo: "Membrane",
     },
     {
         id: "quadrant",
@@ -118,6 +125,7 @@ export const projects: Project[] = [
             "Azure Analysis Services",
         ],
         url: "https://www.quadranttechnologies.com",
+        logo: "Quadrant",
     },
     {
         id: "parita",
@@ -132,5 +140,6 @@ export const projects: Project[] = [
         ],
         techStack: ["Domo", "Python"],
         url: "https://www.parita.com/",
+        logo: "PARiTA",
     },
 ]
