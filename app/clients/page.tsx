@@ -12,6 +12,8 @@ import { TrustBar } from "@/components/home/trust-bar"
 import { PageHero } from "@/components/page-hero"
 import { TestimonialSlider } from "@/components/testimonial-slider"
 import { testimonials } from "@/lib/data/testimonials"
+import { ProjectSlider } from "@/components/project-slider"
+import { projects } from "@/lib/data/projects"
 import { EngagementSection } from "@/components/home/engagement-section"
 import { useInView } from "@/hooks/use-in-view"
 
@@ -22,36 +24,6 @@ const clients = [
   { name: "Sitickets", logo: "SITICKETS" },
 ]
 
-
-const caseStudies = [
-  {
-    title: "DeFi Lending Protocol",
-    client: "Confidential",
-    problem:
-      "Client needed a secure, audited lending protocol with unique collateralization mechanics and cross-chain support.",
-    solution:
-      "Built modular smart contract architecture with comprehensive test coverage. Implemented custom oracle integration and governance mechanisms.",
-    results: [
-      "$50M+ TVL within 6 months of launch",
-      "Zero security incidents post-audit",
-      "3 successful chain deployments",
-    ],
-    tech: ["Solidity", "Foundry", "The Graph", "React"],
-  },
-  {
-    title: "AI-Powered Document Processing",
-    client: "Enterprise Client",
-    problem: "Manual document processing was causing significant delays and errors in their operations workflow.",
-    solution:
-      "Developed an LLM-based system with custom RAG pipeline for document understanding, extraction, and automated routing.",
-    results: [
-      "85% reduction in processing time",
-      "40% cost savings in operations",
-      "99.2% accuracy on key data extraction",
-    ],
-    tech: ["Python", "LangChain", "OpenAI", "PostgreSQL"],
-  },
-]
 
 function ClientsCTA() {
   const { openBooking } = useBooking()
@@ -116,57 +88,8 @@ export default function ClientsPage() {
               <p className="mt-4 text-muted-foreground">A closer look at some of our recent work</p>
             </div>
 
-            <div ref={projectsRef} className="grid lg:grid-cols-2 gap-8">
-              {caseStudies.map((caseStudy, index) => (
-                <Card key={index} className={`bg-card border-border overflow-hidden hover:border-accent/50 transition-colors ${projectsInView ? 'animate-fade-up' : ''}`} style={{ animationDelay: `${index * 150}ms` }}>
-                  <CardContent className="p-0">
-                    <div className="p-6 border-b border-border">
-                      <div className="flex items-start justify-between mb-4">
-                        <h3 className="text-xl font-semibold text-foreground">{caseStudy.title}</h3>
-                        <ExternalLink className="h-4 w-4 text-muted-foreground" />
-                      </div>
-                      <p className="text-sm text-muted-foreground">{caseStudy.client}</p>
-                    </div>
-
-                    <div className="p-6 space-y-6">
-                      <div>
-                        <h4 className="text-sm font-semibold text-foreground mb-2">Challenge</h4>
-                        <p className="text-sm text-muted-foreground">{caseStudy.problem}</p>
-                      </div>
-
-                      <div>
-                        <h4 className="text-sm font-semibold text-foreground mb-2">Solution</h4>
-                        <p className="text-sm text-muted-foreground">{caseStudy.solution}</p>
-                      </div>
-
-                      <div>
-                        <h4 className="text-sm font-semibold text-foreground mb-2">Results</h4>
-                        <ul className="space-y-1">
-                          {caseStudy.results.map((result, resultIndex) => (
-                            <li key={resultIndex} className="text-sm text-accent flex items-center gap-2">
-                              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                              {result}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="pt-4 border-t border-border">
-                        <div className="flex flex-wrap gap-2">
-                          {caseStudy.tech.map((tech, techIndex) => (
-                            <span
-                              key={techIndex}
-                              className="text-xs px-2 py-1 bg-secondary text-muted-foreground rounded"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+            <div ref={projectsRef} className={`transition-opacity duration-1000 ${projectsInView ? 'opacity-100' : 'opacity-0'}`}>
+              <ProjectSlider projects={projects} />
             </div>
           </div>
         </section>
