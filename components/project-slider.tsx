@@ -112,7 +112,7 @@ export function ProjectSlider({
                 </button>
 
                 {/* Slider Container */}
-                <div className="max-w-7xl mx-auto">
+                <div className="px-12 max-w-7xl mx-auto">
                     <div
                         className={`flex gap-8 ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
                         style={sliderStyle}
