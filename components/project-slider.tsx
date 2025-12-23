@@ -92,18 +92,66 @@ export function ProjectSlider({
 
     const normalizedIndex = ((currentIndex - startIndex) % projects.length + projects.length) % projects.length
 
+    // Drag support state
+    const [dragOffset, setDragOffset] = useState(0)
+    const [isDragging, setIsDragging] = useState(false)
+    const [startX, setStartX] = useState(0)
+
+    const handleDragStart = (clientX: number) => {
+        setIsDragging(true)
+        setStartX(clientX)
+        setIsPaused(true)
+    }
+
+    const handleDragMove = (clientX: number) => {
+        if (!isDragging) return
+        const current = clientX
+        const diff = current - startX
+        setDragOffset(diff)
+    }
+
+    const handleDragEnd = () => {
+        if (!isDragging) return
+        setIsDragging(false)
+
+        // Threshold to change slide (e.g., 50px)
+        if (dragOffset > 50) {
+            prevSlide()
+        } else if (dragOffset < -50) {
+            nextSlide()
+        }
+
+        setDragOffset(0)
+        setIsPaused(false)
+    }
+
+    // Touch events
+    const onTouchStart = (e: React.TouchEvent) => handleDragStart(e.targetTouches[0].clientX)
+    const onTouchMove = (e: React.TouchEvent) => handleDragMove(e.targetTouches[0].clientX)
+    const onTouchEnd = () => handleDragEnd()
+
+    // Mouse events
+    const onMouseDown = (e: React.MouseEvent) => handleDragStart(e.clientX)
+    const onMouseMove = (e: React.MouseEvent) => handleDragMove(e.clientX)
+    const onMouseUp = () => handleDragEnd()
+    const onMouseLeave = () => {
+        if (isDragging) handleDragEnd()
+        setIsPaused(false)
+    }
+
     // Custom CSS variable type validation workaround
     const sliderStyle = {
         "--slide-width": SLIDE_WIDTH,
         "--slide-gap": `${GAP_REM}rem`,
-        transform: `translateX(calc(-${currentIndex} * (var(--slide-width) + var(--slide-gap))))`,
+        transform: `translateX(calc(calc(-${currentIndex} * (var(--slide-width) + var(--slide-gap))) + ${dragOffset}px))`,
+        cursor: isDragging ? 'grabbing' : 'grab'
     } as React.CSSProperties
 
     return (
         <div
             className="relative"
             onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            onMouseLeave={onMouseLeave}
         >
             {/* Desktop & Mobile: Horizontal Carousel */}
             <div className="relative overflow-hidden pl-1 py-4 -ml-1 -my-4"> {/* padding/margin trick for focus rings or shadow clipping */}
@@ -125,9 +173,17 @@ export function ProjectSlider({
                 </button>
 
                 {/* Slider Container */}
-                <div className="px-12 max-w-7xl mx-auto">
+                <div
+                    className="px-12 max-w-7xl mx-auto"
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
+                    onMouseDown={onMouseDown}
+                    onMouseMove={onMouseMove}
+                    onMouseUp={onMouseUp}
+                >
                     <div
-                        className={`flex gap-8 ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
+                        className={`flex gap-8 ${isTransitioning && !isDragging ? "transition-transform duration-700 ease-in-out" : ""}`}
                         style={sliderStyle}
                         onTransitionEnd={handleTransitionEnd}
                     >
