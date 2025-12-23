@@ -26,7 +26,10 @@ export const metadata: Metadata = {
     "DeFi",
     "remote engineering teams",
   ],
-  generator: 'v0.app'
+  generator: 'v0.app',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export const viewport = {
