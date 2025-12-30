@@ -11,6 +11,10 @@ const clients = [
   { name: "Microsoft", light: "/assets/svgs/Microsoft.svg", dark: "/assets/svgs/Microsoft-w.svg", width: 150, height: 60 },
   { name: "OpenZeppelin", light: "/assets/svgs/OpenZeppelin.svg", dark: "/assets/svgs/OpenZeppelin-w.svg", width: 150, height: 60 },
   { name: "SuperRare", light: "/assets/svgs/SuperRare.svg", dark: "/assets/svgs/SuperRare-w.svg", width: 150, height: 60 },
+  //{ name: "Rise", light: "/assets/svgs/Rise.svg", dark: "/assets/svgs/Rise-w.svg", width: 150, height: 60 },
+  { name: "Galaxy", light: "/assets/svgs/Galaxy.svg", dark: "/assets/svgs/Galaxy-w.svg", width: 150, height: 60 },
+  // { name: "Quadrant", light: "/assets/svgs/Quadrant.svg", dark: "/assets/svgs/Quadrant-w.svg", width: 150, height: 60 },
+  { name: "Membrane", light: "/assets/svgs/Membrane.svg", dark: "/assets/svgs/Membrane-w.svg", width: 150, height: 60 },
   { name: "Sitickets", light: "/assets/svgs/Sitix.svg", dark: "/assets/svgs/Sitix-w.svg", width: 150, height: 60 },
 ]
 

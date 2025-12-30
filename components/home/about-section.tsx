@@ -41,18 +41,13 @@ export function AboutSection() {
             <h2 className="text-3xl font-bold text-foreground mb-6">Who We Are</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Rubicon is a LATAM-based, remote-first engineering company specializing in blockchain, AI, and
-                full stack product development. We've built our team around senior engineers who are passionate about
-                cutting-edge technology.
+                Rubicon is a LATAM-based, remote-first engineering company specializing in Blockchain, AI, and Full Stack product development. We've built our team around senior engineers who are passionate about cutting-edge technology.
               </p>
               <p>
-                Our distributed model allows us to work with global clients across time zones while maintaining the
-                agility and culture of a tight-knit team. We believe in transparency, quality, and long-term
-                partnerships.
+                Our distributed model allows us to work with global clients across different time zones while maintaining the agility and culture of a tight-knit team.<br /><em className="font-bold">We believe in transparency, quality, and long-term partnerships.</em>
               </p>
               <p>
-                From early-stage startups to Fortune 500 companies, we've helped teams ship products that matter—on time
-                and to the highest standards.
+                From early-stage startups to Fortune 500 companies, we've helped teams ship products that matter—on time and to the highest standards.
               </p>
             </div>
           </div>

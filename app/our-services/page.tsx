@@ -108,7 +108,7 @@ const faqs = [
   {
     question: "What are your typical project timelines?",
     answer:
-      "Timelines vary based on scope. Smart contract development can range from 4-12 weeks. Full-stack products typically take 2-6 months. We provide detailed estimates after the discovery phase.",
+      "Timelines vary based on scope. Smart contract development can range 1-3 months. Full-stack products typically take 2-4 months. We provide detailed estimates after the discovery phase.",
   },
   {
     question: "How do you handle communication across time zones?",
