@@ -113,7 +113,7 @@ export function HeroSection() {
                 </span>
               ))}
             </h1>
-            <div className="mt-6 text-lg text-foreground max-w-xl leading-relaxed mr-30">
+            <div className="mt-6 text-lg text-foreground max-w-xl leading-relaxed md:mr-30">
               <p
                 className="mb-5 animate-fade-up"
                 style={{ animationDelay: "1000ms", animationFillMode: "both" }}
