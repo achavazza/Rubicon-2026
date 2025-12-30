@@ -46,7 +46,7 @@ export default function ClientsPage() {
       <main>
         {/* Hero */}
         <PageHero
-          title="Our Clients & Success Stories"
+          title="Our Top Clients & Success Stories"
           description="We've partnered with startups and enterprises across blockchain, fintech, and technology to deliver production-grade solutions that drive real business outcomes."
         />
 

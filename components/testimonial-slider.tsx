@@ -17,10 +17,7 @@ export function TestimonialSlider({
     autoSlide = true,
     autoSlideInterval = 5000
 }: TestimonialSliderProps) {
-    const VISIBLE_SLIDES = 3
     const GAP_REM = 1.5 // matches gap-6
-    const GAP_TOTAL_REM = GAP_REM * (VISIBLE_SLIDES - 1)
-    const SLIDE_WIDTH = `calc((100% - ${GAP_TOTAL_REM}rem) / ${VISIBLE_SLIDES})`
 
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isPaused, setIsPaused] = useState(false)
@@ -124,8 +121,8 @@ export function TestimonialSlider({
     }
 
     const sliderVars = {
-        "--slide-width": SLIDE_WIDTH,
         "--slide-gap": `${GAP_REM}rem`,
+        "--slide-width": "calc((100% - (var(--slide-gap) * (var(--visible-slides) - 1))) / var(--visible-slides))",
         transform: `translateX(calc(calc(-${currentIndex} * (var(--slide-width) + var(--slide-gap))) + ${dragOffset}px))`,
         cursor: isDragging ? 'grabbing' : 'grab'
     } as React.CSSProperties
@@ -166,7 +163,7 @@ export function TestimonialSlider({
                     onMouseUp={onMouseUp}
                 >
                     <div
-                        className={`flex gap-6 ${isTransitioning && !isDragging ? "transition-transform duration-700 ease-in-out" : ""}`}
+                        className={`flex gap-6 [--visible-slides:1] md:[--visible-slides:3] ${isTransitioning && !isDragging ? "transition-transform duration-700 ease-in-out" : ""}`}
                         style={{
                             ...sliderVars,
                         }}

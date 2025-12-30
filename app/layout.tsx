@@ -11,6 +11,7 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
   display: "swap",
+  style: ["normal", "italic"],
 })
 
 export const metadata: Metadata = {

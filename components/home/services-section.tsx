@@ -38,7 +38,7 @@ export function ServicesSection() {
   const { ref, isInView } = useInView({ threshold: 0.2 })
 
   return (
-    <section className="py-20 md:py-32 bg-[var(--alt-background)]">
+    <section className="py-20 md:py-20 md:pt-30 bg-[var(--alt-background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">What we build</h2>
