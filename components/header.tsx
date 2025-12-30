@@ -12,7 +12,7 @@ import { usePathname } from "next/navigation"
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { openBooking } = useBooking()
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
 
@@ -21,7 +21,7 @@ export function Header() {
   }, [])
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
   }
 
   // Prevent hydration mismatch
@@ -101,7 +101,7 @@ export function Header() {
               className="rounded-full"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
             <Button onClick={openBooking}>Book a meeting</Button>
           </div>
@@ -115,7 +115,7 @@ export function Header() {
               className="rounded-full mr-2"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
             <button
               className="p-2 text-foreground"
