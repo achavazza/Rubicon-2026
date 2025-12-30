@@ -64,10 +64,10 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@rubicon.dev"
+                  href="mailto:hello@rubicontech.io"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  hello@rubicon.dev
+                  hello@rubicontech.io
                 </a>
               </li>
               <li>
