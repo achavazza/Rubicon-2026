@@ -31,7 +31,7 @@ export function ContactSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Ready to ship your next blockchain, AI or product initiative?
+            Ready to Ship Your Next Blockchain, AI or Product Initiative?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Schedule a technical introduction with our team. No commitment required.
