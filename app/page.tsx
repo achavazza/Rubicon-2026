@@ -19,9 +19,11 @@ export default function HomePage() {
         {/*<PartnersSection />*/}
         <TrustedSection />
         <AboutSection />
-        <ServicesSection />
-        <EngagementSection />
-        <WhyRubiconSection />
+        <div className="md:py-20 bg-[var(--alt-background)]" >
+          <ServicesSection />
+          <EngagementSection />
+          <WhyRubiconSection />
+        </div>
         <CTAFinalSection />
       </main>
       <Footer />
