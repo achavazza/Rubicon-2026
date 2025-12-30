@@ -35,7 +35,7 @@ export function TrustedSection() {
 
         <div className="border-t border-border mt-10 pt-10">
           <p className="text-center text-sm text-muted-foreground/70 uppercase tracking-widest mb-8">
-            Companies we've worked with
+            Companies we work with
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             {clients.map((client) => (
