@@ -37,6 +37,12 @@ export const viewport = {
   themeColor: "#1a1a2e",
 }
 
+import Script from "next/script"
+
+// ... imports
+
+// ... metadata
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,6 +65,19 @@ export default function RootLayout({
           <Analytics />
         </ThemeProvider>
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-TV6VXRGM24"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-TV6VXRGM24');
+        `}
+      </Script>
     </html>
   )
 }
