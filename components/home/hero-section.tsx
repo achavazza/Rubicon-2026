@@ -113,10 +113,20 @@ export function HeroSection() {
                 </span>
               ))}
             </h1>
-            <p className="mt-6 text-lg text-foreground max-w-xl leading-relaxed mr-30">
-              Remote-first engineers building modern <b>Web & Mobile apps, AI Systems and Blockchain Solutions</b>.<br /><br />
-              Access <b>+3,000</b> time-zone aligned software engineers with experience in <b>+100 technologies</b>.
-            </p>
+            <div className="mt-6 text-lg text-foreground max-w-xl leading-relaxed mr-30">
+              <p
+                className="mb-5 animate-fade-up"
+                style={{ animationDelay: "1000ms", animationFillMode: "both" }}
+              >
+                Remote-first engineers building modern <b>Web & Mobile apps, AI Systems and Blockchain Solutions</b>.
+              </p>
+              <p
+                className="animate-fade-up"
+                style={{ animationDelay: "1150ms", animationFillMode: "both" }}
+              >
+                Access <b>+3,000</b> time-zone aligned software engineers with experience in <b>+100 technologies</b>.
+              </p>
+            </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button size="lg" onClick={openBooking}>
                 Talk to our team
