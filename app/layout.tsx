@@ -54,7 +54,7 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
-          enableSystem={true}
+          enableSystem={true} // Set to false to prioritize defaultTheme over system preference
           disableTransitionOnChange
           storageKey="rubicon-theme"
         >
