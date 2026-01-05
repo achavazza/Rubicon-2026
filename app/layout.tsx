@@ -53,7 +53,7 @@ export default function RootLayout({
       <body className={`${dmSans.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="system" // Cambiar "system" por "light" o "dark"
           enableSystem={true} // Set to false to prioritize defaultTheme over system preference
           disableTransitionOnChange
           storageKey="rubicon-theme"
