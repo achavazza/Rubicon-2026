@@ -5,7 +5,7 @@ export function PartnersSection() {
     { name: "Algorand Foundation", logo: "ALGORAND" },
     { name: "Consensus", logo: "CONSENSUS" },
     { name: "Halborn", logo: "HALBORN" },
-    { name: "Fintech Forum Argentina", logo: "FINTECH FORUM" },
+    // { name: "Fintech Forum Argentina", logo: "FINTECH FORUM" },
     { name: "ETH Latam", logo: "ETH Latam" },
   ]
 
