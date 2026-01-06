@@ -8,7 +8,7 @@ export function HeroPartners({ className }: { className?: string }) {
         { name: "ETH Latam", light: "/assets/svgs/Eth-latam.svg", dark: "/assets/svgs/Eth-latam-w.svg", width: 150, height: 60 },
         { name: "Consensys", light: "/assets/svgs/Concensus.svg", dark: "/assets/svgs/Concensus-w.svg", width: 150, height: 60 },
         { name: "Halborn", light: "/assets/svgs/Halborn-b.svg", dark: "/assets/svgs/Halborn-w.svg", width: 150, height: 60 },
-        { name: "AFF", light: "/assets/svgs/AFF.svg", dark: "/assets/svgs/AFF-w.svg", width: 150, height: 60 },
+        //{ name: "AFF", light: "/assets/svgs/AFF.svg", dark: "/assets/svgs/AFF-w.svg", width: 150, height: 60 },
     ]
 
     return (
