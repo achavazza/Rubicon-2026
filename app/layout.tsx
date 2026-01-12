@@ -15,6 +15,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rubicontech.io"),
   title: "Rubicon | Blockchain, AI & Product Engineering from LATAM",
   description:
     "Remote-first engineers building smart contracts, DeFi protocols, AI systems, and modern web apps for global companies. Trusted by Microsoft, OpenZeppelin, and more.",
@@ -30,6 +31,28 @@ export const metadata: Metadata = {
   generator: 'v0.app',
   icons: {
     icon: '/favicon.svg',
+  },
+  openGraph: {
+    title: "Rubicon | Blockchain, AI & Product Engineering from LATAM",
+    description: "Remote-first engineers building smart contracts, DeFi protocols, AI systems, and modern web apps for global companies.",
+    url: "https://rubicontech.io",
+    siteName: "Rubicon",
+    images: [
+      {
+        url: "/assets/images/rubicon-thumb.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Rubicon - Blockchain & AI Engineering",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rubicon | Blockchain, AI & Product Engineering from LATAM",
+    description: "Remote-first engineers building smart contracts, DeFi protocols, AI systems, and modern web apps for global companies.",
+    images: ["/assets/images/rubicon-thumb.jpg"],
   },
 }
 
