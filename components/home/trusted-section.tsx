@@ -25,7 +25,7 @@ export function TrustedSection() {
     <section id="clients" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Our Clients</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">What Our Clients Say</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             We help global teams ship blockchain, AI and product initiatives faster, without sacrificing quality.
           </p>

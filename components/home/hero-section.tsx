@@ -133,7 +133,7 @@ export function HeroSection() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button variant="ghost" size="lg" asChild className="hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-colors duration-200">
-                <Link href="#clients">View our work</Link>
+                <Link href="/clients">View our work</Link>
               </Button>
             </div>
           </div>
