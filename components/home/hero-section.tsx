@@ -128,11 +128,11 @@ export function HeroSection() {
               </p>
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={openBooking}>
+              <Button size="lg" onClick={openBooking} className="hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-colors duration-200">
                 Talk to our team
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="ghost" size="lg" asChild className="hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-colors duration-200">
                 <Link href="#clients">View our work</Link>
               </Button>
             </div>

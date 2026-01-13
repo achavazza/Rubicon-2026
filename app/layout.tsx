@@ -20,13 +20,15 @@ export const metadata: Metadata = {
   description:
     "Remote-first engineers building smart contracts, DeFi protocols, AI systems, and modern web apps for global companies. Trusted by Microsoft, OpenZeppelin, and more.",
   keywords: [
-    "blockchain development",
-    "AI engineering",
-    "full-stack development",
-    "LATAM tech",
-    "smart contracts",
-    "DeFi",
-    "remote engineering teams",
+    "software development company",
+    "custom software development",
+    "software engineering services",
+    "web3 development services",
+    "blockchain consulting services",
+    "web3 engineering teams",
+    "AI consulting services",
+    "AI software development",
+    "product development teams",
   ],
   generator: 'v0.app',
   icons: {
